@@ -1,0 +1,71 @@
+<div class="sm:ml-56">
+	<div>
+		<h1 class="text-4xl font-bold my-5">{{ content }}:  <span id="host-name">{{ entity.name }}</span></h1>
+		<div>
+			<p class="text-xl my-5">Credits: {{ entity.credit }}</p>
+			{% if entity.credit == "0:00:00" %}
+			<p class="text-xl my-5" style="color: red">No credits, go learning!</p>
+			{% endif %}
+		</div>
+		<div id="information" class="grid grid-cols-3 divide-x h-full">
+			<div>
+				<p class="text-xl my-5">Learning Sites</p>
+				<div class="flex items-center border-b border-teal-500 py-2 px-3">
+					<input id="learning-sites-ip" class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="ex: 10.0.0.2" aria-label="Full name">
+					<button id="learning-sites-button" class="flex-shrink-0 bg-green-300 hover:bg-teal-700 border-green-300 hover:border-teal-700 text-sm border-4 text-white py-1 px-4 rounded" type="button">
+						Add
+					</button>
+				</div>
+				<ul id="learning-sites" class="list-disc list-inside">
+					{% for edu in entity.edu_site %}
+					<li>
+						{{ edu }}
+						<button class="flex-shrink-0 bg-red-300 hover:bg-red-700 border-red-300 hover:border-red-700 text-sm border-4 text-white py-1 px-2 rounded" 
+						value={{edu}} site="learning"
+						>
+							Remove
+						</button>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div>
+				<p class="text-xl my-5">Entertainment Sites</p>
+				<div class="flex items-center border-b border-teal-500 py-2 px-3">
+					<input id="entertainment-sites-ip" class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="ex: 10.0.0.3" aria-label="Full name">
+					<button id="entertainment-sites-button" class="flex-shrink-0 bg-green-300 hover:bg-teal-700 border-green-300 hover:border-teal-700 text-sm border-4 text-white py-1 px-4 rounded" type="button">
+						Add
+					</button>
+				</div>
+				<ul id="entertainment-sites" class="list-disc list-inside">
+					{% for entertainment in entity.entmt_site %}
+					<li>
+						{{ entertainment }}
+						<button class="flex-shrink-0 bg-red-300 hover:bg-red-700 border-red-300 hover:border-red-700 text-sm border-4 text-white py-1 px-2 rounded" 
+						value={{entertainment}} site="entertainment"
+						>
+							Remove
+						</button>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div>
+				<p class="text-xl my-5">Ratio</p>
+				<div>
+					<label for="learning-range" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Increase Ratio：</label>
+					<input id="learning-range" type="range" min="0" max="5" value="{{ entity.credit_ratio.incr }}" step="1" class="h-2 bg-gray-200 accent-green-300 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
+					<p id="learning-range-value" class="inline">{{ entity.credit_ratio.incr }}</p>
+				</div>
+				<div class="block">
+					<label for="entertainment-range" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Decrease Ratio：</label>
+					<input id="entertainment-range" type="range" min="0" max="5" value="{{ entity.credit_ratio.decr }}" step="1" class="h-2 bg-gray-200 accent-green-300 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
+					<p id="entertainment-range-value" class="inline">{{ entity.credit_ratio.decr }}</p>
+				</div>
+			</div>
+			<!-- load tailwind class attributes use in js-->
+			<label hidden class="flex-shrink-0 bg-red-300 hover:bg-red-700 border-red-300 hover:border-red-700 text-sm border-4 text-white py-1 px-2 rounded  text-red-600"></label>
+		</div>
+	</div>
+</div>
+}}

@@ -1,0 +1,6 @@
+__pycache__/
+web/__pycache__/
+node_modules/
+package*.json
+sources/
+tailwind.config.js
