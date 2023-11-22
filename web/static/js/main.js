@@ -1,4 +1,4 @@
-const URL_PREFIX = 'http://api.sdn.com/learning/'
+const URL_PREFIX = 'http://localhost:8080/learning/'
 var collapse = document.getElementsByClassName("collapsible")
 var collapseList = document.getElementById("learning-collapse")
 var collapseContainer = document.getElementById("learning-collapse-container")

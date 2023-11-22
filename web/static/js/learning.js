@@ -1,5 +1,5 @@
 const host_name = document.getElementById('host-name').innerText
-const URL_PREFIX = 'http://api.sdn.com/learning/host/'
+const URL_PREFIX = 'http://localhost:8080/learning/host/'
 const information = document.getElementById('information')
 const learning_list = document.getElementById('learning-sites')
 const entertainment_list = document.getElementById('entertainment-sites')
