@@ -6,7 +6,7 @@ from flask import render_template
 from flask_cors import CORS
 from flask import jsonify
 
-LEARNING_URL_PREFIX = 'http://api.sdn.com/learning'
+LEARNING_URL_PREFIX = 'http://localhost:8080/learning'
 
 app = Flask(__name__)
 CORS(app)
