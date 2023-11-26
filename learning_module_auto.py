@@ -92,6 +92,9 @@ class LearningModuleAuto(app_manager.RyuApp):
 			self.start_t = time.time()
 			self.new_timer = False
 		
+		# Delete specific LLDP flow
+		self.delete_all_flows(datapath, 0, 0)
+
 		req = parser.OFPFlowStatsRequest(datapath)
 		datapath.send_msg(req)
 
