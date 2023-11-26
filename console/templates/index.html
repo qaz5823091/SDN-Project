@@ -29,6 +29,9 @@
 		{% elif content == 'LearningHost' %}
 			{% include 'learning-by-host-content.html' %}
 			<script type="module" src="{{ url_for('static', filename='js/learning.js') }}"></script>
+		{% elif content == 'LearningAddHost' %}
+			{% include 'learning-add-host.html' %}
+			<script type="module" src="{{ url_for('static', filename='js/learning-add-host.js') }}"></script>
 		{% endif %}
 
 		<script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>

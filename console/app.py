@@ -34,3 +34,7 @@ def learningByName(name: str):
     response = requests.get(LEARNING_URL_PREFIX + '/host/' + name)
     entity = response.json()
     return render_template('index.html', content = 'LearningHost', entity = entity)
+
+@app.route('/learning/add-host')
+def learningAddHost():
+    return render_template('index.html', content = 'LearningAddHost')

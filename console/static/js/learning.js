@@ -128,13 +128,13 @@ async function entertainmentRemoveButtonListener(event) {
 function initialComponents() {
 	learning_range.addEventListener("input", (event) => {
 		learning_range_value.innerHTML = event.target.value
-		console.log(event.target.value)
+		//console.log(event.target.value)
 		fetch(URL_PREFIX + host_name + '/ratio/learning/' + event.target.value)
 	})
 
 	entertainment_range.addEventListener("input", (event) => {
 		entertainment_range_value.innerHTML = event.target.value
-		console.log(event.target.value)
+		//console.log(event.target.value)
 		fetch(URL_PREFIX + host_name + '/ratio/entertainment/' + event.target.value)
 	})
 

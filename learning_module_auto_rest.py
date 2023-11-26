@@ -1,4 +1,5 @@
 import json
+import time, datetime
 
 from ryu.app.project import learning_module_auto
 from ryu.controller import ofp_event
@@ -124,3 +125,23 @@ class LearningModuleAutoController(ControllerBase):
         entity[name]['credit_ratio']['decr'] = float(value)
 
         return Response(status = 200)
+
+    # create an entity
+    @route('learning', '/learning/add-host', methods = ['POST'])
+    def update_entertainment_ratio(self, req, **kwargs):
+        entity = self.switch_app.entity
+        ip = json.loads(req.body)['ip']
+        
+        if ip not in entity:
+            new_entity = {
+                'credit': datetime.timedelta(hours=0, minutes=0, seconds=0),
+                'edu_site': [] ,
+                'entmt_site': [],
+                'credit_ratio': {'incr':1.0, 'decr':1.0},
+                'prev_conn_to_edu': False,
+                'prev_conn_time': datetime.datetime.now()
+            }
+            entity[ip] = new_entity
+            return Response(status = 200)
+        else:
+            return Response(status = 404)
