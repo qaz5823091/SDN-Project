@@ -75,7 +75,7 @@ $ source venv/bin/activate
 * 伺服器會架設在 port 8080 API server is setup on localhost:8080
 
 
-## Web（需新開終端機）
+## Web Console（需新開終端機）
 * 啟動虛擬環境 launch the virtual environment
 ```bash
 $ source venv/bin/activate
