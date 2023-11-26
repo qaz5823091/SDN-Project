@@ -234,6 +234,14 @@ class LearningModuleAuto(app_manager.RyuApp):
 			 "00:00:00:00:00:04", "10.0.0.4", 4)
 		self.send_arp_request(datapath, "00:00:00:00:00:04", "10.0.0.4",
 			 "00:00:00:00:00:01", "10.0.0.1", 1)
+		self.send_arp_request(datapath, "00:00:00:00:00:02", "10.0.0.2",
+			 "00:00:00:00:00:04", "10.0.0.4", 4)
+		self.send_arp_request(datapath, "00:00:00:00:00:04", "10.0.0.4",
+			 "00:00:00:00:00:02", "10.0.0.2", 2)
+		self.send_arp_request(datapath, "00:00:00:00:00:03", "10.0.0.3",
+			 "00:00:00:00:00:04", "10.0.0.4", 4)
+		self.send_arp_request(datapath, "00:00:00:00:00:04", "10.0.0.4",
+			 "00:00:00:00:00:03", "10.0.0.3", 3)
 		self.send_arp_request(datapath, "00:00:00:00:00:01", "10.0.0.1",
 			 "00:00:00:00:00:05", "10.0.0.5", 5)
 		self.send_arp_request(datapath, "00:00:00:00:00:05", "10.0.0.5",
@@ -270,6 +278,14 @@ class LearningModuleAuto(app_manager.RyuApp):
 			   1, 3, datapath)
 		self.preinstall_flow(1, "00:00:00:00:00:03", "00:00:00:00:00:01",
 			   3, 1, datapath)
+		self.preinstall_flow(1, "00:00:00:00:00:02", "00:00:00:00:00:04",
+			   2, 4, datapath)
+		self.preinstall_flow(1, "00:00:00:00:00:03", "00:00:00:00:00:04",
+			   3, 4, datapath)
+		self.preinstall_flow(1, "00:00:00:00:00:04", "00:00:00:00:00:02",
+			   4, 2, datapath)
+		self.preinstall_flow(1, "00:00:00:00:00:04", "00:00:00:00:00:03",
+			   4, 3, datapath)
 		
 		"""self.preinstall_flow(1, "00:00:00:00:00:01", "00:00:00:00:00:04",
 			   1, 4, datapath)
