@@ -81,9 +81,9 @@ $ source venv/bin/activate
 $ source venv/bin/activate
 ```
 
-* 進入網頁的目錄 enter ryu/ryu/app/project/web/
+* 進入網頁後台的目錄 enter ryu/ryu/app/project/console/
 ```bash
-(venv) $ cd ryu/ryu/app/project/web/
+(venv) $ cd ryu/ryu/app/project/console/
 ```
 
 * 啟動網頁 launch the flask server
