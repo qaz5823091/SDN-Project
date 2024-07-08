@@ -6,7 +6,7 @@ from flask import render_template
 from flask_cors import CORS
 from flask import jsonify
 
-LEARNING_URL_PREFIX = 'http://localhost:8080/learning'
+LEARNING_URL_PREFIX = 'http://api/learning'
 
 app = Flask(__name__)
 CORS(app)
@@ -25,7 +25,8 @@ def statistics():
 
 @app.route('/learning')
 def learning():
-    response = requests.get(LEARNING_URL_PREFIX + '/hosts')
+    url = LEARNING_URL_PREFIX + '/hosts'
+    response = requests.get(url)
     entity = response.json()
     return render_template('index.html', content = 'Learning', entity = entity)
 

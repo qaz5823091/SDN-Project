@@ -9,11 +9,11 @@ var CONF = {
         dist: 200,
         charge: -600
     },
-    host: "http://localhost:8080",
+    host: "http://api.sdn.com",
     svg_style: "border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-10"
 };
 
-var ws = new WebSocket("ws://0.0.0.0:8080/v1.0/topology/ws");
+var ws = new WebSocket("ws://api.sdn.com/v1.0/topology/ws");
 ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 

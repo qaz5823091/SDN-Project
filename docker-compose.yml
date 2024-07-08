@@ -1,0 +1,45 @@
+networks:
+  sdn-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+          gateway: 172.20.0.1
+services:
+  console:
+    build: ./console
+    volumes:
+      - ./console:/usr/src/app
+    ports:
+      - 5000:80
+    extra_hosts:
+      - "console.sdn.com:172.20.0.2"
+    networks:
+      sdn-network:
+        ipv4_address: 172.20.0.2
+  api:
+    image: sdn-api
+    build: ./api
+    ports:
+      - 80:80
+    extra_hosts:
+      - "api.sdn.com:172.20.0.3"
+    depends_on:
+      - console
+    networks:
+      sdn-network:
+        ipv4_address: 172.20.0.3
+  mininet:
+      build: ./mininet
+      stdin_open: true
+      tty: true
+      privileged: true
+      environment:
+        - DISPLAY
+      depends_on:
+        - console
+        - api
+      command: "--topo single,5 --mac --switch ovsk --controller remote,ip=172.20.0.3 --nat"
+      networks:
+        sdn-network:
+          ipv4_address: 172.20.0.4

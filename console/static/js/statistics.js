@@ -1,5 +1,5 @@
 const CONF = {
-    host: "http://localhost:8080",
+    host: "http://api.sdn.com",
     svg_style: "border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-10 p-4",
     svg_color: "LightSeaGreen"
 }

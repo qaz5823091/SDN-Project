@@ -1,4 +1,4 @@
-const URL_PREFIX = 'http://localhost:8080/learning/add-host'
+const URL_PREFIX = 'http://api.sdn.com/learning/add-host'
 const add_button = document.getElementById("learning-add-host-button")
 const select = document.getElementById("learning-add-host-select")
 
