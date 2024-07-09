@@ -4,7 +4,7 @@
 - Dcoker Compose
 
 ## 安裝
-1. 按照[官網](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)提示安裝  `docker `、`docker-compose`
+1. 按照[官網](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)提示安裝  `docker`、`docker-compose`
 
 2. 新增 domain 到 host
 ```bash
@@ -29,12 +29,12 @@ $ cd SDN-Project/
 (SDN-Project) $ docker compouse run --rm mininet
 ```
 
-5-1. 若需要開啟其他拓樸可以到 `docker-compose.yml` 修改
-```yml=42
-command: "--topo single,5 --mac --switch ovsk --controller remote,ip=172.20.0.3 --nat"
-```
+> 5-1. 若需要開啟其他拓樸可以到 `docker-compose.yml` 修改
+> ```yml=42
+> command: "--topo single,5 --mac --switch ovsk --controller remote,ip=172.20.0.3 --nat"
+> ```
 
-5-2. 或是將其註解，開啟容器並手動輸入 mn 指令
+> 5-2. 或是將其註解，開啟容器並手動輸入 mn 指令
 
 6. 瀏覽器輸入 `console.sdn.com` 可進到控制台畫面
 
