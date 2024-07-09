@@ -31,14 +31,15 @@ $ cd SDN-Project/
 <details>
 <summary>其他設定</summary>
 
-1. 若需要開啟其他拓樸可以到 `docker-compose.yml` 修改
+i. 若需要開啟其他拓樸可以到 `docker-compose.yml` 修改
 
 ```yml=42
 42 command: "--topo single,5 --mac --switch ovsk --controller remote,ip=172.20.0.3 --nat"
 ```
 
-2. 或是將其註解，開啟容器並手動輸入 mn 指令
+ii. 或是將其註解，開啟容器並手動輸入 mn 指令
 </details>
+
 
 6. 瀏覽器輸入 `console.sdn.com` 可進到控制台畫面
 
