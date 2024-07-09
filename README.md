@@ -14,8 +14,7 @@ $ sudo echo $'172.20.0.2 console.sdn.com\n172.20.0.3 api.sdn.com' >> /etc/hosts
 
 3. 複製專案
 ```bash
-$ git clone git@github.com:qaz5823091/SDN-Project.git
-$ cd SDN-Project/
+$ git clone https://github.com/qaz5823091/SDN-Project.git && cd SDN-Project/
 ```
 
 4. 開啟 console 與 api 網站
