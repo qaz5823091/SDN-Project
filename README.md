@@ -25,7 +25,7 @@ $ git clone https://github.com/qaz5823091/SDN-Project.git && cd SDN-Project/
 
 5. 開啟 mininet 網路（開啟另一個終端機）
 ```bash
-(SDN-Project) $ docker compouse run --rm mininet
+(SDN-Project) $ docker compose run --rm mininet
 ```
 <details>
 <summary>其他設定</summary>
