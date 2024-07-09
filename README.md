@@ -1,98 +1,44 @@
 # SDN Project
 ## 環境
-預設系統 Ubuntu
+- Docker
+- Dcoker Compose
 
-## Mininet
-* 安裝 mininet install mininet
+## 安裝
+1. 按照[官網](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)提示安裝  `docker `、`docker-compose`
+
+2. 新增 domain 到 host
 ```bash
-$ sudo apt-get install mininet
+$ sudo echo $'172.20.0.2 console.sdn.com\n172.20.0.3 api.sdn.com' >> /etc/hosts
+```
+> 需要輸入此行 API 呼叫才會正常
+
+3. 複製專案
+```bash
+$ git clone git@github.com:qaz5823091/SDN-Project.git
+$ cd SDN-Project/
 ```
 
-* 建立拓樸並開啟 controller 與 nat 模式 launch mininet with defined topology
+4. 開啟 console 與 api 網站
 ```bash
-$ sudo mn --topo single,5 --mac --switch ovsk --controller remote --nat
+(SDN-Project) $ docker compose up console api
+```
+> 可加入 `-d` 參數在背後執行（但這樣無法觀測到數據）
+
+5. 開啟 mininet 網路（開啟另一個終端機）
+```bash
+(SDN-Project) $ docker compouse run --rm mininet
 ```
 
-* 看到以下畫面即表示成功 success if you see the picture below
-![image](https://hackmd.io/_uploads/Sy3yixYEa.png)
-
-
-## 環境建立（需新開終端機）
-* 建立 `venv` 虛擬環境 create a virtual environment named `venv`
-```bash
-$ virtualenv venv
+5-1. 若需要開啟其他拓樸可以到 `docker-compose.yml` 修改
+```yml=42
+command: "--topo single,5 --mac --switch ovsk --controller remote,ip=172.20.0.3 --nat"
 ```
 
-* 啟動虛擬環境 launch the virtual environment
-```bash
-$ source venv/bin/activate
-```
+5-2. 或是將其註解，開啟容器並手動輸入 mn 指令
 
-* 下載獎勵式學習系統 clone repo from Github
-```bash
-$ git clone https://github.com/qaz5823091/SDN-Project.git
-```
+6. 瀏覽器輸入 `console.sdn.com` 可進到控制台畫面
 
-* 重新命名目錄 rename the directory
-```bash
-$ mv SDN-Project/ project/
-```
-
-* 安裝套件 install target packages
-```bash
-(venv) $ pip install -r project/requirements.txt
-```
-
-## Controller
-* 下載 ryu clone ryu controller from Github
-```bash
-$ git clone https://github.com/faucetsdn/ryu.git
-```
-
-* 把系統放在 ryu/app 底下 move the project directory to the ryu/app/
-```bash
-$ mv project/ ryu/ryu/app/project/
-```
-
-* 進入 ryu/ 目錄 enter the ryu directory
-```bash
-$ cd ryu
-```
-
-* 啟動虛擬環境 launch the virtual environment
-```bash
-$ source venv/bin/activate
-```
-
-* 啟動 controller 程式 start ryu application
-```bash
-(venv) $ sh ryu/app/project/auto-start.sh
-```
-
-* 看到以下畫面即表示成功 success if you see the picture below
-![image](https://hackmd.io/_uploads/HJVrogtNT.png)
-
-* 伺服器會架設在 port 8080 API server is setup on localhost:8080
-
-
-## Web Console（需新開終端機）
-* 啟動虛擬環境 launch the virtual environment
-```bash
-$ source venv/bin/activate
-```
-
-* 進入網頁後台的目錄 enter ryu/ryu/app/project/console/
-```bash
-(venv) $ cd ryu/ryu/app/project/console/
-```
-
-* 啟動網頁 launch the flask server
-```bash
-(venv) $ flask run
-```
-
-* 系統會假設在 port 5000 rewarded learning system is setup on localhost:5000
-![image](https://hackmd.io/_uploads/rkCWy-KVp.png)
+7. 再來就可以開始實驗了！
 
 ## 注意！Notice!
 瀏覽器需安裝允許 CORS 的插件，網頁才會運作正常
