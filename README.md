@@ -44,6 +44,9 @@ ii. 或是將其註解，開啟容器並手動輸入 mn 指令
 
 7. 再來就可以開始實驗了！
 
+## Demo
+[以 SDN 實現獎勵是學習系統 v2 - Docker Compose Demo](https://youtu.be/_7Abg2WN5vw)
+
 ## 注意！Notice!
 瀏覽器需安裝允許 CORS 的插件，網頁才會運作正常
 - [Chrome](https://chromewebstore.google.com/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?pli=1)
