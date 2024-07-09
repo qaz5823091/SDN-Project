@@ -8,7 +8,7 @@
 
 2. 新增 domain 到 host
 ```bash
-$ sudo echo $'172.20.0.2 console.sdn.com\n172.20.0.3 api.sdn.com' >> /etc/hosts
+$ sudo sh -c "echo '172.20.0.2 console.sdn.com\n172.20.0.3 api.sdn.com' >> /etc/hosts"
 ```
 > 需要輸入此行 API 呼叫才會正常
 
